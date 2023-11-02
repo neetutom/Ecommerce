@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block metadescription %}
+    This is the Cart page. Please review your items and proceed with the order.
+{% endblock %}
+
+{% block title %}
+        My Shopping Cart
+{% endblock %}
+{% block content %}
+
+{% if not cart_items %}
+    <div>
+        <div class="text-center">
+            <br>
+            <h2 class="text-center my-title">Your bag is empty! Let’s fill it up shall we?</h2>
+            <h1></h1>
+            <br>
+            <div><a class="btn btn-empty-bag" href="{% url 'shopApp:allProductCat' %}">Continue Shopping</a> </div>
+        </div>
+    </div>
+{% else %}
+<div>
+    <div class="text-center">
+        <br>
+        <h1 class="text-center my-title">
+            My Shopping Cart <br>
+        </h1>
+    </div>
+    <div class="row mx-auto">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center">
+            <table class=" table custom-product-table">
+                <thead class="custom-thead">
+                <tr>
+                    <th colspan="5">
+                        Your Items
+                    </th>
+                </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                {% for cart_item in cart_items %}
+                    <tr>
+                        <td>
+                            <a href="{{cart_item.product.get_url}}"><img src="{{cart_item.product.prod_image.url}}" alt="{{cart_item.product.prod_name" class="my-prod-image my-image-padding float-left rounded custom_image "> </a>
+
+                        </td>
+                        <td style="text-align:left">
+                            {{cart_item.product.prod_name}}
+                            <br>
+                            SKU: {{cart_item.product.id}}
+                            <br>
+                            Price: &#x20b9;{{cart_item.product.prod_price}}
+                            <br>
+                            Qty: {{cart_item.quantity}}
+                        </td>
+                        <td>
+                            $ {{cart_item.sub_total}}
+                        </td>
+                        {% if cart_item.quantity < cart_item.product.stock %}
+                        <td style="width:15%">
+                            <a href="{% url 'cart:add_cart' cart_item.product.id %}" class="custom-a">
+                                <i class="fa fa-plus-square-o custom-icon"></i></a>
+                            <a href="{% url 'cart:remove_cart' cart_item.product.id %}" class="custom-a">
+                                <i class="fa fa-minus custom-icon"></i></a>
+                                <a href="{% url 'cart:item_delete' cart_item.product.id %}" class="custom-a"><i class="fa fa-trash custom-icon"></i></a>
+                        </td>
+                        {% else %}
+                        <td>
+                                <a disabled><i class="fa fa-plus-square-o custom-icon"></i></a>
+                                <a href="{% url 'cart:remove_cart' cart_item.product.id %}" class="custom-a">
+                                <i class="fa fa-minus custom-icon"></i></a>
+                                <a href="{% url 'cart:item_delete' cart_item.product.id %}" class="custom-a"><i class="fa fa-trash custom-icon"></i></a>
+                        </td>
+                        {% endif %}
+                    </tr>
+                {% endfor %}
+                </tbody>
+
+            </table>
+
+        </div>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center">
+            <table class="table custom-product-table">
+                <thead class="custom-thead">
+                <tr>
+                    <th colspan="5">
+                        CheckOut
+                    </th>
+                </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                    <tr>
+                        <td>
+                            Please review your Shopping Cart Items before Checkout.
+                        </td>
+                    </tr>
+                <tr>
+                    <td class="text-left">You Pay({{counter}} Items):<strong>&#x20b9;{{total}}</strong></td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="mx-auto">
+                <a class="btn btn-empty-bag" href="{% url 'shopApp:allProductCat' %}"><b>Continue Shopping</b></a>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+{% endif %}
+
+
+{% endblock %}

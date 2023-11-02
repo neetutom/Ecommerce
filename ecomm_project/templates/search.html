@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block metadescription %}
+
+        Welcome to Artisans Bakery! We specialize in creating cakes and pastries according to your design. Let us gild your celebration by baking the perfect cake. Welcome in!"
+
+{% endblock %}
+
+{% block title %}
+        Searching...
+{% endblock %}
+
+
+{% block content %}
+<div>
+        <p class="text-center my-search-text">
+                You have searched for :<b>"{{query}}"</b>
+        </p>
+</div>
+<div class="container">
+    <div class="row mx-auto">
+            {% for product in products %}
+            <div class="my-bottom-margin col-9 col-sm-12 col-md-4 col-lg-4">
+                <div class="container">
+                    <div class="card text-center" style="min-width: 18rem;">
+                       <a href="{{product.get_url}}"><img class="card-image-top my-prod-image" src="{{product.prod_image.url}}" alt="{{product.prod_name}}"></a>
+                      <div class="card-body">
+                        <h5 class="card-text">{{product.prod_name}}</h5>
+                          <p class="card-text">&#x20b9;{{product.prod_price}}</p>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="row mx-auto">
+                <p class="text-center my-search-text">0 results found!!</p>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+  {% endblock %}
+
+
+
+

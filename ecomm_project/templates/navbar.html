@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'shopApp:allProductCat' %}">Shop</a>
+        </li>
+        <li class="nav-item dropdown {% if 'shop' in request.path %}active{% endif %}">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Products
+          </a>
+          <ul class="dropdown-menu">
+            {% for cat in links %}
+            <li><a class="dropdown-item" href="{{cat.get_url}}">{{cat.category_name}}</a></li>
+            {% endfor %}
+          </ul>
+        </li>
+        <li class="nav-item">
+          <div class="display-flex">
+              <div>
+                <a class="nav-link" href="{% url 'cart:cart_detail' %}">Your Cart</a>
+              </div>
+              <div class="display-flex" style="margin-top:10px;">
+                  <div>
+                    <i class="fa-solid fa-cart-shopping"></i>
+                  </div>
+                  {% if counter > 0 %}
+                  <div class="cart-count">
+                    {{counter}}
+                  </div>
+                  {% endif %}
+              </div>
+          </div>
+        </li>
+      </ul>
+      <form class="d-flex" action="{% url 'search:searchResult' %}" method="GET">
+        {% csrf_token %}
+        <input type="search" name="search" class="form-control me-2" placeholder="Search here!">
+        <button type="submit" class="btn btn-clear"><i class="fa-solid fa-magnifying-glass fa-xl" style="color:grey;"></i></button>
+      </form>
+
+    </div>
+  </div>
+</nav>

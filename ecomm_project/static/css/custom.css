@@ -1,0 +1,171 @@
+body{
+    font-family: 'Roboto Mono', monospace;
+}
+
+.display-flex{
+    display:flex;
+}
+/*******NAVBAR ********/
+
+.nav-item{
+    letter-spacing:.2em;
+    font-size:16px;
+    text-transform:uppercase;
+}
+
+.dropdown-item{
+    letter-spacing:.2em;
+    font-size:14px;
+    text-transform:uppercase;
+}
+
+/*****FOOTER ******/
+.my-footer{
+     background-color:LightPink;
+     height:60px;
+}
+.my-footer p{
+    padding-top:20px;
+    font-size:14px;
+}
+
+/******CATEGORY *****/
+
+.my-row-class{
+    padding-top:15px;
+
+}
+
+.my-row-class .mx-auto{
+    color:black;
+}
+
+a{
+    color:inherit;
+    font-size:16px;
+    text-decoration: none;
+    }
+
+.my-image{
+    width:100%;
+    height:580px;
+}
+.my-title{
+    font-size:16px;
+    text-transform:uppercase;
+    letter-spacing:.2em;
+}
+
+.my-image-padding{
+    padding:10px;
+    margin-top:5px;
+}
+
+.my-prod-image{
+    width:250px;
+    height:250px;
+
+}
+
+.my-bottom-margin{
+    margin-bottom:10px;
+}
+
+.card-body h5{
+    font-family: "Times New Roman", Times, serif;
+    text-transform:uppercase;
+    text-spacing:.2em;
+}
+
+/****PRODUCT PAGE**********/
+..my_prod_row{
+    padding-top:15px;
+    padding-bottom:20px;
+}
+
+.my_prod_row .mx-auto{
+    color:#000;
+    font-size: 14px;
+    text-decoration:none;
+
+}
+
+.my_product_title{
+    font-size:16px;
+    text-transform:uppercase;
+    letter-spacing:.2em;
+    padding-top:15px;
+    padding-bottom:10px;
+}
+
+.my_prod_text{
+    padding-right:20px;
+}
+
+.cart-count{
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0;
+    letter-spacing: 0;
+    border-radius: 50%;
+    margin: 0;
+    width: 20px;
+    height: 20px;
+    top: 3px;;
+    right:auto;
+    left:auto;
+    bottom: auto;
+    text-align: center;
+    background:red;
+    color: #fff;
+}
+
+.my-search-text{
+    padding-top:20px;
+}
+
+/**********CART***********/
+
+.btn-empty-bag{
+    cursor:pointer;
+    height:46px;
+    width:194px;
+    padding: 0px 15px;
+    border-radius:23px;
+    float:none;
+    background-color: rgb(255, 23, 68);
+    text-align: center;
+    font-size:14px;
+    vertical-align:center;
+    line-height: 40px;
+    color:white;
+}
+
+.custom-product-table{
+    min-width:400px;
+    font-size:14px;
+}
+
+.custom-thead{
+    font-weight:normal;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    background-color: #f8f8fa!important;
+
+}
+
+.custom-a{
+    text-decoration:none;
+
+}
+
+.custom-icon{
+    text-decoration:none;
+    color:#000 ! important;
+}
+
+.custom-table-btn{
+    margin-top:5px;
+}
+
